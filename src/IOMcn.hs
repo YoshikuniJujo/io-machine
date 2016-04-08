@@ -6,7 +6,7 @@ import Data.Time
 
 newtype IOMcn a b = IOMcn { getIOMcn :: a -> IO b }
 
-runIOMcn :: IOMcn () () -> IO ()
+runIOMcn :: IOMcn () a -> IO a
 runIOMcn m = getIOMcn m ()
 
 (>>>) :: IOMcn a b -> IOMcn b c -> IOMcn a c
